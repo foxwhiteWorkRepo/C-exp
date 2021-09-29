@@ -33,16 +33,21 @@
 ## （六）	实验步骤与调试
 1. 想出实现三个取最大的逻辑，并写出草稿。
 2. 发现了`printf`完`scanf`会出现奇怪的bug。
-### 应有行为
+
+应有行为
+
     Clang Experiment-1
     Choose the programme you want to run (1 or 2)
     1
-### 实际行为
+    
+实际行为
+
     1
     Clang Experiment-1
     Choose the programme you want to run (1 or 2)
-4. 原来 `scanf` 只吃数字而吃尾随的换行符，导致缓冲区多了个换行。 在 `%d` 后面放一个换行符或空格会给我带来相反的问题，读得太远，永远结束不了`scanf`。
-5. 加入了 `setbuf(stdout, NULL);` 这段代码禁用缓存区
+    
+3. 原来 `scanf` 只吃数字而吃尾随的换行符，导致缓冲区多了个换行，而`printf`需要等换行才会从缓存区输出。 在 `%d` 后面放一个换行符或空格会给我带来相反的问题，读得太远，永远结束不了`scanf`。
+4. 加入了 `setbuf(stdout, NULL);` 这段代码禁用缓存区
 
 ## （七） 实验结果与分析
 1. 输入
