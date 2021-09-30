@@ -127,7 +127,7 @@ void main() {
 6. 以下代码将输出一样的结果。
 ```c
 void main() {
-    printf("aa bb	cc	abc");
+    printf("aa bb	cc	abc\n");
     printf("A N");
 }
 ```
