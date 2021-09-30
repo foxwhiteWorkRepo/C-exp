@@ -37,6 +37,7 @@ void ifImplement(int score){
     if (score >= 60 && score < 70) puts("D");
     if (score < 60) puts("E");
 }
+
 void switchImplement(int score){
     puts("Your rank:");
     switch (score) {

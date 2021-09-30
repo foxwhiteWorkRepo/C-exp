@@ -8,7 +8,7 @@
 
 
 ## （二）实验内容和要求
-###实验内容1:
+### 实验内容1:
 试编写程序，用getchar函数读入两个字符给c1,c2，然后分别用putchar函数和printf函数输出这个字符。
 
 实验要求：
@@ -36,8 +36,86 @@
 ## （五）	源程序
 见 [main.c](main.c)
 
-## （六）	实验步骤与调试
-1. 
+## （六） 实验步骤与调试
+1. 想逻辑
+2. 发现 `getchar()` 很烦，会留下一个换行符在缓存区。然后要是后面再接一个 `getchar()`，之后的`putchar()`就会失效。
+3. 使用`while`自建一个缓存，如果获取到的是换行符就跳过。
 
 ## （七） 实验结果与分析
-1. 
+### 实验内容1
+输入
+```
+1
+a
+z
+```
+输出
+```
+Clang Experiment - 3
+Choose the programme you want to run (1 or 2):
+Please enter two characters
+Result of putchar():
+az
+Result of printf():
+az
+```
+1. `putchar();` 只能够输出一个字符，而 `printf();` 可以输出多个字符。
+2. 据我的测试，如果只需要一个字符时，`putchar();`比 `printf();` 快一点点。
+***
+### 实验内容2
+输入
+```
+1
+70
+```
+输出
+```
+Clang Experiment - 3
+Choose the programme you want to run (1 or 2):
+Enter your score:
+ifImplement:
+Your rank:
+C
+switchImplement:
+Your rank:
+C
+```
+***
+输入
+```
+2
+114514
+```
+输出
+```
+Clang Experiment - 3
+Choose the programme you want to run (1 or 2):
+Enter your score:
+ifImplement:
+Invalid score
+switchImplement:
+Your rank:
+Invalid score
+```
+***
+输入
+```
+2
+89
+```
+输出
+```
+Clang Experiment - 3
+Choose the programme you want to run (1 or 2):
+Enter your score:
+ifImplement:
+Your rank:
+B
+switchImplement:
+Your rank:
+B
+```
+***
+1. 在输入错误输入(114514)的时候，程序返回了`Invalid score`。
+2. 在输入边界值时程序也能够正确返回等级。
+3. if 和 switch 的实现均返回相同的值。
