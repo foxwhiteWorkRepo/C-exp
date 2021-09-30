@@ -25,11 +25,7 @@ void one() {
     getchar();
 }
 
-void two() {
-    int score;
-    puts("Enter your score:");
-    scanf("%d", &score);
-    getchar();
+void ifImplement(int score){
     if (score > 100 || score < 0) {
         puts("Invalid score");
         return;
@@ -40,6 +36,40 @@ void two() {
     if (score >= 70 && score < 80) puts("C");
     if (score >= 60 && score < 70) puts("D");
     if (score < 60) puts("E");
+}
+void switchImplement(int score){
+    puts("Your rank:");
+    switch (score) {
+        case 90 ... 100:
+            puts("A");
+            break;
+        case 80 ... 89:
+            puts("B");
+            break;
+        case 70 ... 79:
+            puts("C");
+            break;
+        case 60 ... 69:
+            puts("D");
+            break;
+        case 0 ... 59:
+            puts("E");
+            break;
+        default:
+            puts("Invalid score");
+            break;
+    }
+}
+
+void two() {
+    int score;
+    puts("Enter your score:");
+    scanf("%d", &score);
+    getchar();
+    puts("ifImplement:");
+    ifImplement(score);
+    puts("switchImplement:");
+    switchImplement(score);
 }
 
 int main() {
