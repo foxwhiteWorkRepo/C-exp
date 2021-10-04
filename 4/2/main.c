@@ -1,12 +1,15 @@
 #include <stdio.h>
+
 #define STRING_LENGTH 100
 
 int main() {
     char str[STRING_LENGTH];
-    fgets(str, STRING_LENGTH , stdin);
+    setbuf(stdout, NULL);
+    puts("Enter a string:");
+    fgets(str, STRING_LENGTH, stdin);
     int letterCount = 0, spaceCount = 0, numberCount = 0, otherCount = 0;
     for (int i = 0; i <= STRING_LENGTH; i++) {
-        if (str[i] == '\0') break;
+        if (str[i] == 10) break;
         switch (str[i]) {
             case 32:
                 spaceCount++;
@@ -19,9 +22,13 @@ int main() {
                 letterCount++;
                 break;
             default:
+                printf("%d", str[i]);
                 otherCount++;
         }
     }
-    printf("Letter: %d, Space: %d, Number: %d, Other: %d",letterCount,spaceCount,numberCount,otherCount);
+    printf("Letter: %d, Space: %d, Number: %d, Other: %d\n", letterCount, spaceCount, numberCount, otherCount);
+    printf("Total: %d", letterCount + spaceCount + numberCount + otherCount);
+    printf("\nPress enter to continue...");
+    getchar();
     return 0;
 }
