@@ -76,6 +76,7 @@ void getInt(int array[ARRAY_LENGTH]){
         puts("Type a int:");
         scanf("%d", &array[i]);
     }
+    getchar();
 }
 
 #define selectionSort(array) \
@@ -92,5 +93,7 @@ int main() {
     getValue(array);
     selectionSort(array);
     printArray(array);
+    printf("\nPress enter to continue...");
+    getchar();
     return 0;
 }
