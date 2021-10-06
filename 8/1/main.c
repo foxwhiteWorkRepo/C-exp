@@ -4,18 +4,19 @@
 
 #define STUDENT 5
 #define SUBJECT 3
+#define STRING 20
 
 typedef struct{
     int id;
-    char name[20];
+    char name[STRING];
     int score[SUBJECT];
 } Student;
 
 void input(Student array[STUDENT]) {
     for (int i = 0; i < STUDENT; i++) {
         printf("Enter the name of student %d :\n", i);
-        fgets(array[i].name, 20, stdin);
-        for (int j = 0; j < 20; j++) if (array[i].name[j] == '\n') array[i].name[j] = '\0';
+        fgets(array[i].name, STRING, stdin);
+        for (int j = 0; j < STRING; j++) if (array[i].name[j] == '\n') array[i].name[j] = '\0';
         for (int j = 0; j < SUBJECT; j++) {
             printf("Enter score of subject %d for student %d :\n", j, i);
             scanf("%d", &array[i].score[j]);
