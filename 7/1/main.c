@@ -2,6 +2,12 @@
 
 #define ARRAY_LENGTH 3
 #define STRING_LENGTH 100
+#define selectionSort(array) \
+   _Generic((array), int*: selectionSortInt, char(*)[STRING_LENGTH]: selectionSortString)(array)
+#define printArray(array) \
+   _Generic((array), int*: printArrayInt, char(*)[STRING_LENGTH]: printArrayString)(array)
+#define getValue(array) \
+   _Generic((array), int*: getInt, char(*)[STRING_LENGTH]: getString)(array)
 
 void swap(int *a, int *b) {
     int temp = *a;
@@ -79,17 +85,10 @@ void getInt(int array[ARRAY_LENGTH]){
     getchar();
 }
 
-#define selectionSort(array) \
-   _Generic((array), int*: selectionSortInt, char(*)[STRING_LENGTH]: selectionSortString)(array)
-#define printArray(array) \
-   _Generic((array), int*: printArrayInt, char(*)[STRING_LENGTH]: printArrayString)(array)
-#define getValue(array) \
-   _Generic((array), int*: getInt, char(*)[STRING_LENGTH]: getString)(array)
-
 int main() {
     setbuf(stdout, NULL);
-    int array[ARRAY_LENGTH];
-//    char array[ARRAY_LENGTH][STRING_LENGTH];
+//    int array[ARRAY_LENGTH];
+    char array[ARRAY_LENGTH][STRING_LENGTH];
     getValue(array);
     selectionSort(array);
     printArray(array);
